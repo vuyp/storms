@@ -1,0 +1,69 @@
+{
+  "_doc": "ARCHITECTURE §12.4. t = hours relative to T0; until = {event, predicate?, maxSimS?}; pos = room id | yard id | x,y,z; script = named script applied at its sim times through objects.api.use/place; seed defaults to 7.",
+  "scenarios": [
+    { "id": "prep-dawn", "t": -32, "pos": "foyer", "yaw": 90, "pitch": 0, "seed": 7 },
+    { "id": "prep-shutters-half", "t": -27, "pos": "frontYard", "yaw": 270, "script": "shuttersHalf", "seed": 7 },
+    { "id": "tv-cone", "t": -30, "pos": "great", "yaw": 90, "pitch": 0, "seed": 7 },
+    { "id": "sunset", "t": -18.3, "pos": "lanai", "yaw": 270, "pitch": 5, "seed": 7 },
+    { "id": "band1-night", "t": -16, "pos": "laundry", "yaw": 0, "pitch": 0, "seed": 7 },
+    { "id": "gap-wetstreet", "t": -14, "pos": "street", "yaw": 180, "pitch": -5, "seed": 7 },
+    { "id": "phone-wea", "t": -14, "pos": "great", "yaw": 90, "until": { "event": "alert:wea", "maxSimS": 36000 }, "seed": 7 },
+    { "id": "ts-dawn", "t": -8, "pos": "lanai", "yaw": 270, "pitch": 5, "seed": 7 },
+    { "id": "flicker", "t": -7.5, "pos": "kitchen", "yaw": 0, "until": { "event": "power:flicker", "maxSimS": 14400 }, "seed": 7 },
+    { "id": "transformer", "t": -8, "pos": "laundry", "yaw": 0, "until": { "event": "power:transformerFlash", "maxSimS": 36000 }, "afterS": 0.05, "seed": 7 },
+    { "id": "distant-flash", "t": -12, "pos": "driveway", "yaw": 0, "until": { "event": "hood:transformerFlash", "maxSimS": 36000 }, "afterS": 0.1, "seed": 7 },
+    { "id": "dark-noon", "t": -2, "pos": "frontHall", "yaw": 270, "params": { "flashlight": "1" }, "seed": 7 },
+    { "id": "eyewall-outside", "t": -1.25, "pos": "driveway", "yaw": 90, "pitch": 0, "seed": 7 },
+    { "id": "garage-pump", "t": -1.5, "pos": "garage", "yaw": 90, "pitch": 0, "seed": 7 },
+    { "id": "front-door-bulge", "t": -1.5, "pos": "foyer", "yaw": 90, "pitch": 0, "seed": 7 },
+    { "id": "slider-bow", "t": 0.85, "pos": "great", "yaw": 270, "pitch": 0, "seed": 7 },
+    { "id": "leak-bucket", "t": -1, "pos": "foyer", "yaw": 90, "pitch": 60, "script": "bucketFoyer", "seed": 7 },
+    { "id": "eye-sky", "t": 0, "pos": "backYard", "yaw": 0, "pitch": 70, "seed": 7 },
+    { "id": "eye-street", "t": -0.1, "pos": "street", "yaw": 180, "pitch": 0, "seed": 7 },
+    { "id": "back-eyewall-hit", "t": 0.8, "pos": "masterBR", "yaw": 270, "pitch": 0, "seed": 7 },
+    { "id": "cage-collapse", "t": 0.5, "pos": "lanai", "yaw": 270, "pitch": 10, "until": { "event": "house:cageStage", "predicate": "e => e.stage === 5", "maxSimS": 14400 }, "seed": 7 },
+    { "id": "flood", "t": 3, "pos": "street", "yaw": 0, "pitch": -10, "seed": 7 },
+    { "id": "night-generators", "t": 8, "pos": "driveway", "yaw": 90, "pitch": 0, "seed": 7 },
+    { "id": "aftermath-dawn", "t": 16.8, "pos": "front door", "yaw": 90, "pitch": 0, "seed": 7 },
+    { "id": "aftermath-day3", "t": 82, "pos": "street", "yaw": 180, "pitch": 0, "seed": 7 },
+    { "id": "endcard", "t": 16.8, "pos": "front door", "yaw": 90, "runScript": "sitOnStep", "seed": 7 },
+    { "id": "night-eye", "t": 0, "pos": "backYard", "yaw": 0, "pitch": 70, "params": { "hour": "2" }, "seed": 7 }
+  ],
+  "scripts": {
+    "shuttersHalf": [
+      { "atTRel": -27.5, "place": ["panel_br2_1", "sock_panel_win_bed2_E"] }, { "atTRel": -27.5, "place": ["panel_br2_2", "sock_panel_win_bed2_E"] },
+      { "atTRel": -27.4, "place": ["panel_br3_1", "sock_panel_win_bed3_E"] }, { "atTRel": -27.4, "place": ["panel_br3_2", "sock_panel_win_bed3_E"] },
+      { "atTRel": -27.3, "place": ["panel_sidelt", "sock_panel_sidelight_foyer_E"] },
+      { "atTRel": -27.2, "place": ["panel_nook_1", "sock_panel_win_nook_N"] }, { "atTRel": -27.2, "place": ["panel_nook_2", "sock_panel_win_nook_N"] }, { "atTRel": -27.2, "place": ["panel_nook_3", "sock_panel_win_nook_N"] },
+      { "atTRel": -27.1, "place": ["panel_laun", "sock_panel_peep_laundry_N"] }
+    ],
+    "allShutters": [
+      { "atTRel": -28, "place": ["panel_br2_1", "sock_panel_win_bed2_E"] }, { "atTRel": -28, "place": ["panel_br2_2", "sock_panel_win_bed2_E"] },
+      { "atTRel": -28, "place": ["panel_br3_1", "sock_panel_win_bed3_E"] }, { "atTRel": -28, "place": ["panel_br3_2", "sock_panel_win_bed3_E"] },
+      { "atTRel": -28, "place": ["panel_sidelt", "sock_panel_sidelight_foyer_E"] },
+      { "atTRel": -28, "place": ["panel_nook_1", "sock_panel_win_nook_N"] }, { "atTRel": -28, "place": ["panel_nook_2", "sock_panel_win_nook_N"] }, { "atTRel": -28, "place": ["panel_nook_3", "sock_panel_win_nook_N"] },
+      { "atTRel": -28, "place": ["panel_laun", "sock_panel_peep_laundry_N"] },
+      { "atTRel": -27, "place": ["panel_kit_1", "sock_panel_win_kitchen_W"] }, { "atTRel": -27, "place": ["panel_kit_2", "sock_panel_win_kitchen_W"] },
+      { "atTRel": -27, "place": ["panel_den_1", "sock_panel_win_den_S"] }, { "atTRel": -27, "place": ["panel_den_2", "sock_panel_win_den_S"] },
+      { "atTRel": -27, "place": ["panel_mbr_1", "sock_panel_win_master_S"] }, { "atTRel": -27, "place": ["panel_mbr_2", "sock_panel_win_master_S"] },
+      { "atTRel": -27, "place": ["panel_mba", "sock_panel_win_mbath_W"] },
+      { "atTRel": -26, "place": ["panel_msl_1", "sock_panel_slider_master_W"] }, { "atTRel": -26, "place": ["panel_msl_2", "sock_panel_slider_master_W"] }, { "atTRel": -26, "place": ["panel_msl_3", "sock_panel_slider_master_W"] },
+      { "atTRel": -26, "use": ["accordion_great", "close"] }
+    ],
+    "fullPrep": [
+      { "atTRel": -30, "use": ["tap_tubHall", "on"] }, { "atTRel": -30, "use": ["tap_tubMaster", "on"] },
+      { "atTRel": -29, "use": ["garageBraceKit", "install"] }, { "atTRel": -29, "use": ["car1", "garage"] },
+      { "atTRel": -28, "place": ["sandbag_1", "sock_sandbag_door_front"] }, { "atTRel": -28, "place": ["sandbag_2", "sock_sandbag_door_front"] },
+      { "atTRel": -28, "place": ["sandbag_3", "sock_sandbag_door_laundry_garage"] }, { "atTRel": -28, "place": ["sandbag_4", "sock_sandbag_door_laundry_garage"] },
+      { "atTRel": -27, "place": ["towel_1", "sock_towel_door_front"] }, { "atTRel": -27, "place": ["towel_2", "sock_towel_slider_great_W"] }, { "atTRel": -27, "place": ["towel_3", "sock_towel_slider_master_W"] },
+      { "atTRel": -26, "use": ["fridge", "coldest"] }, { "atTRel": -26, "use": ["fridge", "iceMakerOff"] }, { "atTRel": -26, "place": ["ziplocs", "sock_freezer"] },
+      { "atTRel": -25, "use": ["lanaiChair_1", "secure"] }, { "atTRel": -25, "use": ["lanaiChair_2", "secure"] }, { "atTRel": -25, "use": ["lanaiChair_3", "secure"] }, { "atTRel": -25, "use": ["lanaiChair_4", "secure"] },
+      { "atTRel": -25, "use": ["grill", "secure"] }, { "atTRel": -25, "use": ["planter_1", "secure"] }, { "atTRel": -25, "use": ["planter_2", "secure"] }, { "atTRel": -25, "use": ["planter_3", "secure"] },
+      { "atTRel": -25, "use": ["windChimes", "secure"] }, { "atTRel": -25, "use": ["bin_trash", "secure"] }, { "atTRel": -25, "use": ["bin_recycle", "secure"] },
+      { "atTRel": -24, "use": ["nwr", "batteries"] }, { "atTRel": -24, "use": ["nwr", "power"] }, { "atTRel": -24, "use": ["nwr", "weather"] },
+      { "atTRel": -24, "use": ["generator", "fuel"] }, { "atTRel": -23, "use": ["poolValve", "open"] }
+    ],
+    "bucketFoyer": [ { "atTRel": -1, "place": ["bucket_1", "sock_bucket_lp_foyer_can"] } ],
+    "sitOnStep": [ { "setPlayer": { "room": "front door", "yaw": 90, "pitch": 0 } }, { "use": ["frontStep", "sit"] } ]
+  }
+}
