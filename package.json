@@ -1,0 +1,21 @@
+{
+  "name": "florida-storm",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A first-person, physically modelled simulation of riding out a Gulf Coast hurricane at home in Florida.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 5173",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 4173",
+    "test": "node --test test/",
+    "shots": "node scripts/screenshots.mjs"
+  },
+  "dependencies": {
+    "three": "0.170.0"
+  },
+  "devDependencies": {
+    "playwright-core": "1.49.1",
+    "vite": "6.0.11"
+  }
+}
