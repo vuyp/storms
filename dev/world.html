@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Florida Storm — world viewer (dev)</title>
+  <style>
+    html, body { margin: 0; height: 100%; background: #101418; overflow: hidden; }
+    #gl { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+    #hud { position: absolute; left: 8px; bottom: 6px; margin: 0; color: #cfe; font: 12px/1.3 monospace; background: rgba(0,0,0,.45); padding: 4px 6px; pointer-events: none; white-space: pre-wrap; max-width: 95vw; }
+  </style>
+</head>
+<body>
+  <canvas id="gl"></canvas>
+  <pre id="hud">loading…</pre>
+  <script type="module" src="/src/world/devViewer.js"></script>
+</body>
+</html>
